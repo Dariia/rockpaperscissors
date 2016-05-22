@@ -1,0 +1,14 @@
+/* Fonts */
+/* Comic */
+@font-face {
+  font-family: 'ComicRegular';
+  src: url('../fonts/comic/comic.eot');
+  src: url('../fonts/comic/comic.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/comic/comic.woff2') format('woff2'),
+       url('../fonts/comic/comic.woff') format('woff'),
+       url('../fonts/comic/comic.ttf') format('truetype'),
+       url('../fonts/comic/comic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
