@@ -105,8 +105,8 @@ module.exports = function ( grunt ) {
 
     // Runs all checkstyle stuff
     grunt.registerTask( 'default', [
-        'jshint',
-        'csslint'
+        'build',
+        'connect'
     ]);
 
     grunt.registerTask( 'watch', [
