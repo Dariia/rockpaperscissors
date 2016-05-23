@@ -41,6 +41,26 @@ Weapons.prototype = {
     ],
 
     /**
+     * Weapons array -
+     * uncomment and use as weaponArray
+     * to simplify the game to 3 choices
+     */
+    //weaponArray: [
+    //    {
+    //        name: 'scissors',
+    //        wins: ['paper']
+    //    },
+    //    {
+    //        name: 'rock',
+    //        wins: ['scissors']
+    //    },
+    //    {
+    //        name: 'paper',
+    //        wins: ['rock']
+    //    }
+    //],
+
+    /**
      *  Compares Weapon
      * @param {Object} item1 weapon opponent 1
      * @param {Object} item2 weapon opponent 2
