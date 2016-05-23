@@ -163,7 +163,7 @@ Game.prototype = {
      * Result container reset
      */
     resultReset: function () {
-        this.resultContainer.html('').attr('area-label', '');
+        this.resultContainer.html('').attr('aria-label', '');
     },
 
     /**
@@ -171,6 +171,6 @@ Game.prototype = {
      * @param msg {String} message
      */
     resultAdd: function (msg) {
-        this.resultContainer.html(msg).attr('area-label', msg);
+        this.resultContainer.html(msg).attr('aria-label', msg);
     }
 };
