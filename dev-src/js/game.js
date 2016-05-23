@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 })();
 
@@ -7,8 +7,8 @@
  * @constructor
  */
 function Game() {
-    this.startContainer =  $('#game-start');
-    this.gameContainer =  $('#game-container');
+    this.startContainer = $('#game-start');
+    this.gameContainer = $('#game-container');
     this.startContainerBtns = this.startContainer.find('.btn');
     this.resetBtn = $('#reset-game');
     this.resetRoundBtn = $('#next-round');
@@ -25,29 +25,39 @@ Game.prototype = {
     /**
      *  Init the general game events
      */
-    init: function(){
-        this.startContainerBtns.on('click', function(e){ this.startGame(e); }.bind(this));
-        this.resetBtn.on('click', function(e){ this.resetGame(e); }.bind(this));
-        this.resetRoundBtn.on('click', function(){ this.resetRound(); }.bind(this));
-        $(document).on('userMadeChoice', function() { this.choicesCompare(); }.bind(this));
+    init: function () {
+        this.startContainerBtns.on('click', function (e) {
+            this.startGame(e);
+        }.bind(this));
+        this.resetBtn.on('click', function (e) {
+            this.resetGame(e);
+        }.bind(this));
+        this.resetRoundBtn.on('click', function () {
+            this.resetRound();
+        }.bind(this));
+        $(document).on('userMadeChoice', function () {
+            this.choicesCompare();
+        }.bind(this));
     },
 
     /**
      *  Game start
      *  @param {object} e
      */
-    startGame: function(e){
+    startGame: function (e) {
         this.realUser = (e.target.id == this.realUserClass);
         this.initUsers();
         this.startContainer.hide();
         this.gameContainer.show();
-        if (!this.realUser){ $(document).trigger('virtualStart'); }
+        if (!this.realUser) {
+            $(document).trigger('virtualStart');
+        }
     },
 
     /**
      * Users init
      */
-    initUsers: function(){
+    initUsers: function () {
         this.user1 = this.realUser ? new HumanUser() : new ComputerUser();
         if (this.realUser) {
             this.user1.init();
@@ -55,8 +65,8 @@ Game.prototype = {
             this.user1.init(1, this.weapon.weaponArray);
         }
 
-        this.user2  = new ComputerUser();
-        this.user2.init(2,this.weapon.weaponArray);
+        this.user2 = new ComputerUser();
+        this.user2.init(2, this.weapon.weaponArray);
 
         this.users = [this.user1, this.user2];
     },
@@ -65,7 +75,7 @@ Game.prototype = {
      *  Reset the game
      *
      */
-    resetGame: function(){
+    resetGame: function () {
         this.startContainer.show();
         this.gameContainer.hide();
         this.generalErrorHide();
@@ -76,7 +86,7 @@ Game.prototype = {
     /**
      * Delete user instances
      */
-    deleteUsers: function(){
+    deleteUsers: function () {
         $(document).off('resetRound');
         this.users = [];
     },
@@ -84,17 +94,19 @@ Game.prototype = {
     /**
      * Reset round
      */
-    resetRound: function(){
+    resetRound: function () {
         $(document).trigger('resetRound');
-        if(!this.realUser) { $(document).trigger('virtualStart'); }
+        if (!this.realUser) {
+            $(document).trigger('virtualStart');
+        }
     },
 
     /**
      *  Choises compare
      * @returns {bool}
      */
-    choicesCompare: function(){
-        if (this.users[0].userMadeChoice && this.users[1].userMadeChoice){
+    choicesCompare: function () {
+        if (this.users[0].userMadeChoice && this.users[1].userMadeChoice) {
             var winner = this.weapon.compareWeapon(this.users[0].userChoiceItem, this.users[1].userChoiceItem);
 
             this.addScore(winner);
@@ -107,13 +119,13 @@ Game.prototype = {
      * Show result message
      * @param msg {String} message
      */
-    showResult: function(msg){
+    showResult: function (msg) {
         var message = this.errorMessage;
 
-        if (msg !== 'error' && msg !== ''){
+        if (msg !== 'error' && msg !== '') {
             message = msg + ' wins!';
-        } else if (msg === ''){
-            message =this.noWinnersMessage;
+        } else if (msg === '') {
+            message = this.noWinnersMessage;
         }
         this.resultAdd(message);
     },
@@ -122,10 +134,11 @@ Game.prototype = {
      * Show result message
      * @param winner {String} message
      */
-    addScore: function(winner){
-        if(winner !== 'error' && winner !== '') {
-            if (this.users[0].userChoiceItem  == winner){
-                this.users[0].addScore(); }
+    addScore: function (winner) {
+        if (winner !== 'error' && winner !== '') {
+            if (this.users[0].userChoiceItem == winner) {
+                this.users[0].addScore();
+            }
             else {
                 this.users[1].addScore();
             }
@@ -135,21 +148,21 @@ Game.prototype = {
      * Error shows
      * @param {String} str
      */
-    generalErrorShow: function(str){
+    generalErrorShow: function (str) {
         this.errorContainer.text(str).show();
     },
 
     /**
      * Error hides
      */
-    generalErrorHide: function(){
+    generalErrorHide: function () {
         this.errorContainer.hide();
     },
 
     /**
      * Result container reset
      */
-    resultReset: function(){
+    resultReset: function () {
         this.resultContainer.html('').attr('area-label', '');
     },
 
@@ -157,7 +170,7 @@ Game.prototype = {
      * Result add
      * @param msg {String} message
      */
-    resultAdd: function(msg){
+    resultAdd: function (msg) {
         this.resultContainer.html(msg).attr('area-label', msg);
     }
 };

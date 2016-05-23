@@ -2,7 +2,8 @@
  * User
  * @constructor
  */
-function User() {}
+function User() {
+}
 User.prototype = {
     userScore: 0,
     userChoiceItem: null,
@@ -17,7 +18,9 @@ User.prototype = {
     initUser: function () {
         this.scoreContainer = this.userChoiceContainer.find(this.userScoreClass);
         this.userReset();
-        $(document).on('resetRound', function () { this.roundReset(); }.bind(this));
+        $(document).on('resetRound', function () {
+            this.roundReset();
+        }.bind(this));
     },
 
     /**
@@ -31,7 +34,7 @@ User.prototype = {
     /**
      * User reset
      */
-    userReset: function(){
+    userReset: function () {
         this.userItemsReset(true);
         this.scoreContainer.html('');
     },
@@ -39,7 +42,7 @@ User.prototype = {
     /**
      * User add score
      */
-    addScore: function(){
+    addScore: function () {
         this.userScore += 1;
         this.scoreContainer.append(this.userScoreIcon);
     },
@@ -57,11 +60,10 @@ User.prototype = {
     /**
      * User choice items reset
      */
-    userItemsReset: function() {
+    userItemsReset: function () {
         this.userChoiceContainer.find("[data-choice]").hide().off('click');
     }
 };
-
 
 
 /**
@@ -69,13 +71,14 @@ User.prototype = {
  * @constructor
  */
 
-function HumanUser(){}
+function HumanUser() {
+}
 HumanUser.prototype = Object.create(User.prototype);
 
 /**
  * Human User init
  */
-HumanUser.prototype.init = function() {
+HumanUser.prototype.init = function () {
     this.userChoiceContainer = $(this.userChoiceContainerId + '1');
     this.initUser();
     this.userChoiceContainer.find("[data-choice]").on('click', function (e) {
@@ -87,10 +90,12 @@ HumanUser.prototype.init = function() {
  * User choice items reset
  * @param allReset {bool} is init reset
  */
-HumanUser.prototype.userItemsReset = function(allReset) {
+HumanUser.prototype.userItemsReset = function (allReset) {
     var items = this.userChoiceContainer.find("[data-choice]");
     items.show();
-    if (allReset){ items.off('click'); }
+    if (allReset) {
+        items.off('click');
+    }
 };
 
 /**
@@ -110,13 +115,12 @@ HumanUser.prototype.makeChoice = function (e) {
 };
 
 
-
-
 /**
  * ComputerUser
  * @constructor
  */
-function ComputerUser(){}
+function ComputerUser() {
+}
 ComputerUser.prototype = Object.create(User.prototype);
 
 /**
@@ -124,13 +128,15 @@ ComputerUser.prototype = Object.create(User.prototype);
  * @param n {int} number of user
  * @param weaponArr {object} random choice
  */
-ComputerUser.prototype.init = function(n, weaponArr){
+ComputerUser.prototype.init = function (n, weaponArr) {
     this.weaponArr = weaponArr;
     this.userChoiceContainer = $(this.userChoiceContainerId + n);
 
     this.initUser();
     $(document).on('virtualStart userMadeChoice', function () {
-        if(!this.userMadeChoice){ this.makeChoice();}
+        if (!this.userMadeChoice) {
+            this.makeChoice();
+        }
     }.bind(this));
 };
 
@@ -151,14 +157,14 @@ ComputerUser.prototype.makeChoice = function () {
  * Returnes random choise
  * @returns {int} random number
  */
-ComputerUser.prototype.getRandom = function(max) {
-  return Math.round(Math.random() * max);
+ComputerUser.prototype.getRandom = function (max) {
+    return Math.round(Math.random() * max);
 };
 
 /**
  * Returnes random choice
  * @returns {String} random choice name
  */
-ComputerUser.prototype.getRandomChoice = function(){
+ComputerUser.prototype.getRandomChoice = function () {
     return this.weaponArr[this.getRandom(this.weaponArr.length - 1)].name;
 };
