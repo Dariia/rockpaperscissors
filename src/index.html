@@ -1,57 +1,63 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 <head>
-    <title></title>
+    <title>Game Rock & Papper & Scissors</title>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    `
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<!--header-->
 <header>
     <h1>Game</h1>
 </header>
-<div class="container">
+<section class="container" role="main">
     <!-- Start container -->
     <div class="container__start" id="game-start">
-        <p>Who will play?</p>
-        <span class="btn btn__circle btn__color-green" id="cc">Computer<br/> vs <br/>Computer</span>
-        <span class="btn btn__circle btn__color-red" id="uc">Me<br/> vs <br/>Computer</span>
+        <p aria-label="Who will play?">Who will play?</p>
+        <input type="button" aria-label="will play computers" class="btn btn__circle btn__color-green" id="cc" value="Computer vs Computer"/>
+        <input type="button" aria-label="will play user and computer" class="btn btn__circle btn__color-red" id="uc" value="Me vs Computer"/>
     </div>
     <!-- Game container -->
-    <div id="game-user" class="container__game">
-        <div id="game-user-1">
+    <div id="game-container" class="container__game no-display">
+        <div id="game-user-1" aria-label="first opponent area">
             <p>Opponent 1:</p>
+
             <div class="game-user-score"></div>
             <div class="container__choice">
-                <span class="btn-ico__scissors fa fa-hand-scissors-o" data-choice="scissors"></span>
-                <span class="btn-ico__rock fa fa-hand-rock-o" data-choice="rock"></span>
-                <span class="btn-ico__paper fa fa-hand-paper-o" data-choice="paper"></span>
+                <button type="button" aria-label="scissors choice" class="btn-ico__scissors fa fa-hand-scissors-o" data-choice="scissors"></button>
+                <button type="button" aria-label="rock choice" class="btn-ico__rock fa fa-hand-rock-o" data-choice="rock"></button>
+                <button type="button" aria-label="paper choice" class="btn-ico__paper fa fa-hand-paper-o" data-choice="paper"></button>
             </div>
         </div>
-        <div id="game-user-2">
+        <div id="game-user-2" aria-label="second opponent area">
             <p>Opponent 2:</p>
+
             <div class="game-user-score"></div>
-            <div  class="container__choice">
-                <span class="btn-ico__scissors fa fa-hand-scissors-o" data-choice="scissors"></span>
-                <span class="btn-ico__rock fa fa-hand-rock-o" data-choice="rock"></span>
-                <span class="btn-ico__paper fa fa-hand-paper-o" data-choice="paper"></span>
+            <div class="container__choice">
+                <button type="button" aria-label="scissors choice" class="btn-ico__scissors fa fa-hand-scissors-o" data-choice="scissors"></button>
+                <button type="button" aria-label="rock choice" class="btn-ico__rock fa fa-hand-rock-o" data-choice="rock"></button>
+                <button type="button" aria-label="paper choice" class="btn-ico__paper fa fa-hand-paper-o" data-choice="paper"></button>
             </div>
         </div>
         <!-- Errors -->
         <div id="error"></div>
 
         <!-- Results -->
-        <div id="result"></div>
+        <div id="result" area-label="no result yet"></div>
 
         <!-- Buttons -->
         <div class="container__buttons">
-            <button type="button" id="reset-game" class="btn btn__color-blue">New Game</button>
-            <button type="button" id="next-round" class="btn btn__color-blue">Next Round</button>
+            <input type="button" id="reset-game" aria-label="reset game" class="btn btn__color-green" value="New Game"/>
+            <input type="button" id="next-round" aria-label="new game round" class="btn btn__color-green" value="Next Round"/>
         </div>
     </div>
-</div>
+</section>
+<!-- footer-->
 <footer><p>&copy; 2016</p></footer>
 <!-- Scripts -->
 <script src="js/main.js"></script>

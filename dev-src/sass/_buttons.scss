@@ -2,7 +2,6 @@
 .btn {
   display:inline-block;
   width: auto;
-  outline: none;
   border: 0;
   margin: 0;
   font-size: 10px;
@@ -24,12 +23,15 @@
     pointer-events: none;
     cursor: default;
   }
+  &:focus {
+    opacity:0.6;
+    outline:none;
+  }
   &__circle {
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
     -o-border-radius: 60px;
     border-radius: 60px;
-    min-height: 50px;
     padding: 25px 15px;
     line-height: 15px;
   }
@@ -38,15 +40,18 @@
     -moz-border-radius: 70px;
     -o-border-radius: 70px;
     border-radius: 70px;
-    height: 60px;
-    padding: 30px;
+    padding: 35px;
     line-height: 20px;
     display: none;
     font-size:25px;
+    border:0;
+    &:focus {
+      opacity:0.6;
+      outline:none;
+    }
     @media only screen and (max-width: 478px) {
       font-size:16px;
-      height: 20px;
-      padding: 15px;
+      padding: 15px 23px;
     }
   }
   &__color-green {

@@ -71,7 +71,7 @@ module.exports = function ( grunt ) {
             },
             dist: {
                 files: {
-                    'src/css/main.css': 'src/sass/main.scss'
+                    'src/css/main.css': 'dev-src/sass/main.scss'
                 }
             }
         },

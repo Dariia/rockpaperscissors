@@ -10,6 +10,7 @@ User.prototype = {
     userChoiceContainerId: '#game-user-',
     userScoreClass: '.game-user-score',
     userScoreIcon: '<span class="fa fa-star"></span>',
+
     /**
      * Init user
      */
@@ -26,6 +27,7 @@ User.prototype = {
         this.userItemsReset(false);
         this.userMadeChoice = false;
     },
+
     /**
      * User reset
      */
@@ -33,6 +35,7 @@ User.prototype = {
         this.userItemsReset(true);
         this.scoreContainer.html('');
     },
+
     /**
      * User add score
      */
@@ -40,6 +43,7 @@ User.prototype = {
         this.userScore += 1;
         this.scoreContainer.append(this.userScoreIcon);
     },
+
     /**
      * Show users choice in browser
      */

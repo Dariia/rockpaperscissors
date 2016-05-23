@@ -8,6 +8,7 @@
  */
 function Game() {
     this.startContainer =  $('#game-start');
+    this.gameContainer =  $('#game-container');
     this.startContainerBtns = this.startContainer.find('.btn');
     this.resetBtn = $('#reset-game');
     this.resetRoundBtn = $('#next-round');
@@ -39,6 +40,7 @@ Game.prototype = {
         this.realUser = (e.target.id == this.realUserClass);
         this.initUsers();
         this.startContainer.hide();
+        this.gameContainer.show();
         if (!this.realUser){ $(document).trigger('virtualStart'); }
     },
 
@@ -65,10 +67,12 @@ Game.prototype = {
      */
     resetGame: function(){
         this.startContainer.show();
+        this.gameContainer.hide();
         this.generalErrorHide();
         this.resultReset();
         this.deleteUsers();
     },
+
     /**
      * Delete user instances
      */
@@ -84,6 +88,7 @@ Game.prototype = {
         $(document).trigger('resetRound');
         if(!this.realUser) { $(document).trigger('virtualStart'); }
     },
+
     /**
      *  Choises compare
      * @returns {bool}
@@ -145,7 +150,7 @@ Game.prototype = {
      * Result container reset
      */
     resultReset: function(){
-        this.resultContainer.html('');
+        this.resultContainer.html('').attr('area-label', '');
     },
 
     /**
@@ -153,6 +158,6 @@ Game.prototype = {
      * @param msg {String} message
      */
     resultAdd: function(msg){
-        this.resultContainer.html(msg);
+        this.resultContainer.html(msg).attr('area-label', msg);
     }
 };
