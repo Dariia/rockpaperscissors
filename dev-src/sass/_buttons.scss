@@ -17,6 +17,7 @@
   -moz-transition: all 150ms ease;
   transition: all 150ms ease;
   padding:5px 10px;
+  color:$color-white;
 
   &:disabled {
     position: relative;
@@ -51,71 +52,46 @@
     }
     @media only screen and (max-width: 478px) {
       font-size:16px;
-      padding: 15px 23px;
+      padding: 10px 12px;
     }
   }
   &__color-green {
     background-color: $color-green;
-    color: lighten($color-white, 6.8%);
     &:hover, &:active {
+      background-color: $color-green;
       background-color: darken($color-green, 10%);
-      color: lighten($color-white, 6.8%);
-    }
-    &:disabled {
-      background-color: lighten($color-green, 15%);
-      color: rgba($color-white, 0.5);
     }
   }
   &__color-red {
     background-color: $color-red;
-    color: lighten($color-white, 6.8%);
     &:hover, &:active {
+      background-color: $color-red;
       background-color: darken($color-red, 10%);
-      color: lighten($color-white, 6.8%);
-    }
-    &:disabled {
-      background-color: lighten($color-red, 15%);
-      color: rgba($color-white, 0.5);
     }
   }
   &__color-gray {
     background-color: $color-gray;
-    color: lighten($color-white, 6.8%);
     &:hover, &:active {
+      background-color: $color-gray;
       background-color: darken($color-gray, 10%);
-      color: lighten($color-white, 6.8%);
-    }
-    &:disabled {
-      background-color: lighten($color-gray, 15%);
-      color: rgba($color-white, 0.5);
     }
   }
   &__color-yellow {
     background-color: $color-blue;
-    color: lighten($color-white, 6.8%);
     &:hover, &:active {
+      background-color: $color-blue;
       background-color: darken($color-blue, 10%);
-      color: lighten($color-white, 6.8%);
-    }
-    &:disabled {
-      background-color: lighten($color-blue, 15%);
-      color: rgba($color-white, 0.5);
     }
   }
   &__color-blue {
     background-color: $color-yellow;
-    color: lighten($color-white, 6.8%);
     &:hover, &:active {
+      background-color:$color-yellow;
       background-color: darken($color-yellow, 10%);
-      color: lighten($color-white, 6.8%);
-    }
-    &:disabled {
-      background-color: lighten($color-yellow, 15%);
-      color: rgba($color-white, 0.5);
     }
   }
   &-ico {
-    &__paper, &__scissors, &__rock, &__lizard {
+    &__paper, &__scissors, &__rock, &__lizard, &__spock {
       @extend .btn__small-circle;
     }
     &__paper {
@@ -129,6 +105,9 @@
     }
     &__lizard {
       @extend .btn__color-blue;
+    }
+    &__spock {
+       @extend .btn__color-red;
     }
   }
 }

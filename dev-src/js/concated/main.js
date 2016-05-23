@@ -18,16 +18,25 @@ Weapons.prototype = {
     weaponArray: [
         {
             name:'scissors',
-            wins: ['Paper']
+            wins: ['paper','lizard']
         },
         {
             name:'rock',
-            wins: ['Scissors']
+            wins: ['scissors','lizard']
         },
         {
             name:'paper',
-            wins: ['Rock']
+            wins: ['rock','spock']
+        },
+        {
+            name:'lizard',
+            wins: ['paper','spock']
+        },
+        {
+            name:'spock',
+            wins: ['scissors','rock']
         }
+
     ],
 
     /**
